@@ -70,8 +70,10 @@
     <ion-item *ngIf="type !== 1 && type !== 4 && type !== 6" [ngSwitch]="type">
 
         <ion-label *ngIf="model.label !== null"
-                   [innerHTML]="model.label"
-                   [ngClass]="[model.cls.element.label, model.cls.grid.label]"></ion-label>
+                   [innerHTML]="model.label.label || label.label"
+                   [ngClass]="[model.cls.element.label, model.cls.grid.label]"
+                   [attrs.floating]="model.label.floating ? '' : null"
+                   [attrs.stacked]="model.label.floating ? '' : null"></ion-label>
 
 
         <ion-checkbox *ngSwitchCase="2"
